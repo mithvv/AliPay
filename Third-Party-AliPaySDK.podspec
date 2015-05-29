@@ -15,9 +15,9 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "AliPay"
-  s.version      = "2.1.2.1"
-  s.summary      = "支付宝 sdk"
+  s.name         = "Third-Party-AliPaySDK"
+  s.version      = "2.1.2"
+  s.summary      = "支付宝 sdk (非官方开发者整理）"
 
   s.description  = <<-DESC
                    A longer description of AliPay in Markdown format.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    * Finally, don't worry about the indent, CocoaPods strips it!
                    DESC
 
-  s.homepage     = "https://b.alipay.com/newIndex.htm"
+  s.homepage     = "https://github.com/mithvv/Third-Party-AliPaySDK"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -53,10 +53,12 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "AliPay" => "https://www.alipay.com/" }
+  # s.author             = { "AliPay" => "https://www.alipay.com/" }
   # Or just: s.author    = "beiliubei"
-  # s.authors            = { "beiliubei" => "beiliubei@gmail.com" }
-  # s.social_media_url   = "http://twitter.com/beiliubei"
+  s.authors            = { 
+    "beiliubei" => "beiliubei@gmail.com",
+    "mithvv" => "mithvv@gmail.com"
+   }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -79,8 +81,8 @@ Pod::Spec.new do |s|
   #
 
   s.source       = { 
-    :git => "https://github.com/beiliubei/AliPay.git", 
-    :tag => "2.1.2.1",
+    :git => "git@github.com:mithvv/Third-Party-AliPaySDK.git", 
+    :tag => "2.1.2",
     :submodules => true
   }
 
@@ -99,17 +101,19 @@ Pod::Spec.new do |s|
 
   s.public_header_files = "AlipaySDK.framework/Headers/**/*.h", "openssl/*.h"
 
-  s.subspec "AliPay-Extend" do |ae|
-    ae.source_files = "AliPay-Extend"
-    ae.subspec "Util" do |u|
-      u.source_files = "AliPay-Extend/Util"
-    end
-  end
+  s.source_files = "AliPay-Extend/*.{h,m}", "openssl/*.h"
 
-  s.subspec "openssl" do |ssl|
-    ssl.source_files = "openssl"
-    ssl.header_dir = "openssl"
-  end
+  # s.subspec "AliPay-Extend" do |ae|
+  #   ae.source_files = "AliPay-Extend"
+  #   ae.subspec "Util" do |u|
+  #     u.source_files = "AliPay-Extend/Util"
+  #   end
+  # end
+
+  # s.subspec "openssl" do |ssl|
+  #   ssl.source_files = "openssl"
+  #   ssl.header_dir = "openssl"
+  # end
 
 
 
